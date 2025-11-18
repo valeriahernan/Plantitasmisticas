@@ -1,0 +1,12 @@
+body {
+  background: #f1f8f3;
+}
+
+.card img {
+  height: 240px;
+  object-fit: cover;
+}
+
+footer {
+  margin-top: 40px;
+}
