@@ -1,12 +1,30 @@
-body {
-  background: #f1f8f3;
+/* styles.css - complementa Bootstrap */
+:root{
+  --brand-green: #1d7e47;
+  --muted: #6c757d;
 }
 
-.card img {
-  height: 240px;
+body {
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  background: #f7fff9;
+  color: #222;
+}
+
+/* Header tweaks */
+.navbar-brand { color: var(--brand-green); font-weight: 700; }
+header .container { padding-top: .5rem; padding-bottom: .5rem; }
+
+/* Card image fix to keep aspect */
+.card img, .card-img-top {
+  height: 160px;
   object-fit: cover;
 }
 
-footer {
-  margin-top: 40px;
+/* Small screens: more compact */
+@media (max-width: 420px) {
+  .card img, .card-img-top { height: 140px; }
+  .display-6 { font-size: 1.2rem; }
 }
+
+/* Footer */
+footer { font-size: .9rem; color: var(--muted); }
