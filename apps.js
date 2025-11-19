@@ -2,9 +2,9 @@
 // Lista de productos
 // ---------------------
 const products = [
-  { id: 1, name: "Monstera Deliciosa", price: 14990, img: "img/monstera.jpg", desc: "Planta tropical de hojas grandes." },
-  { id: 2, name: "Suculenta Jade", price: 4990, img: "img/jade.jpg", desc: "Fácil de cuidar, ideal para interiores." },
-  { id: 3, name: "Helecho Nephrolepis", price: 7990, img: "img/helecho.jpg", desc: "Elegante y purificadora del aire." }
+  { id: 1, name: "Cerezo", price: 14990, img: "img/cerezo6.jpg", desc: "Planta tropical de hojas grandes." },
+  { id: 2, name: "Clavel", price: 4990, img: "img/clavel8.jpg", desc: "Fácil de cuidar, ideal para interiores." },
+  { id: 3, name: "Girasol", price: 7990, img: "img/girasol4.jpg", desc: "Elegante y purificadora del aire." }
 ];
 
 let cart = JSON.parse(localStorage.getItem("cart")) || [];
