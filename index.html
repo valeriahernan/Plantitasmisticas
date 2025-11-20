@@ -1,83 +1,70 @@
 <!doctype html>
 <html lang="es">
 <head>
-  
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Plantitas Místicas — Home</title>
 
-  <!-- Bootstrap CSS (CDN) -->
+  <!-- Bootstrap CSS -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 
   <!-- Estilos propios -->
   <link rel="stylesheet" href="css/styles.css">
-
-
+  <link rel="stylesheet" href="css/parallax.css">
 </head>
+
 <body>
-  <header class="bg-light border-bottom">
-      <section class="parallax-hero mb-5">
 
-        <section class="parallax-hero mb-5 position-relative">
-  
-  <!-- Brillos -->
-  <div class="sparkle" style="top: 20%; left: 10%;"></div>
-  <div class="sparkle" style="top: 35%; left: 80%;"></div>
-  <div class="sparkle" style="top: 70%; left: 50%;"></div>
-  <div class="sparkle" style="top: 55%; left: 20%;"></div>
-  <div class="sparkle" style="top: 10%; left: 60%;"></div>
+  <!-- 🌈 HEADER con Parallax + Brillos -->
+  <header id="hero" class="parallax-bg position-relative">
 
-  <div class="container position-relative">
-    <h1 class="display-4 fw-bold">Flores Místicas ✨</h1>
-    <p class="lead">Energía, naturaleza y magia para tu hogar</p>
-  </div>
-</section>
-  <div class="container position-relative">
-    <h1 class="display-4 fw-bold">Flores Místicas ✨</h1>
-    <p class="lead">Energía, naturaleza y magia para tu hogar</p>
-  </div>
-</section>
-    <nav class="navbar navbar-expand-lg container">
-      <a class="navbar-brand fw-bold" href="#">Plantitas Místicas</a>
+    <!-- Brillos -->
+    <div class="sparkles"></div>
+
+    <nav class="navbar navbar-expand-lg container py-3">
+      <a class="navbar-brand fw-bold text-white" href="#">Plantitas Místicas</a>
 
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
         <span class="navbar-toggler-icon"></span>
       </button>
 
       <div class="collapse navbar-collapse" id="navMenu">
-        <ul class="navbar-nav ms-auto align-items-center">
-          <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
-          <li class="nav-item"><a class="nav-link" href="cart.html">Carrito <span id="cart-badge" class="badge bg-success">0</span></a></li>
-          <li class="nav-item"><a class="nav-link" href="contacto.html">Contacto</a></li>
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link text-white" href="index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link text-white" href="cart.html">Carrito <span id="cart-badge" class="badge bg-success">0</span></a></li>
+          <li class="nav-item"><a class="nav-link text-white" href="contacto.html">Contacto</a></li>
         </ul>
       </div>
     </nav>
 
-    <div class="container text-center py-4">
-      <h1 class="display-6">Flores energéticas y místicas ✨</h1>
-      <p class="text-muted"></p>
+    <!-- Título hero -->
+    <div class="text-center text-white mt-5 py-5">
+      <h1 class="display-5 fw-bold">Flores energéticas y místicas ✨</h1>
+      <p class="lead">Belleza, magia y energía natural</p>
     </div>
   </header>
 
-  <main class="container my-4">
+  <!-- 🌿 Contenido principal ;D -->
+  <main class="container my-5">
     <section aria-labelledby="productos-title">
       <h2 id="productos-title" class="h4 mb-3">Nuestros Productos</h2>
 
-      <!-- Aquí se inyectan las cards -->
       <div id="productos-grid" class="row g-3"></div>
     </section>
   </main>
 
+  <!-- FOOTER -->
   <footer class="bg-light border-top py-3 mt-5">
     <div class="container text-center small">
-      © 2025 Plantitas Místicas SPA. <a href="https://github.com/valeriahernan/Plantitasmisticas" target="_blank"></a>
+      © 2025 Plantitas Místicas SPA —
+      <a href="https://github.com/valeriahernan/Plantitasmisticas" target="_blank">Repo</a>
     </div>
   </footer>
 
-  <!-- Bootstrap JS (CDN) -->
+  <!-- Bootstrap JS -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
-  <!-- Script de la app -->
+  <!-- Lógica de productos -->
   <script src="js/script.js"></script>
 
   <script>
