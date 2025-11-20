@@ -17,6 +17,13 @@
     </nav>
   </header>
 
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+      renderProductDetail('detalle-producto');
+      updateCartBadge();
+    });
+  </script>
+  
   <main class="container my-4">
     <section id="detalle-producto" aria-live="polite">
       <!-- Contenido inyectado por script.js -->
@@ -29,11 +36,6 @@
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.4.3/dist/js/bootstrap.bundle.min.js"></script>
   <script src="script.js"></script>
-  <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      renderProductDetail('detalle-producto');
-      updateCartBadge();
-    });
-  </script>
+  
 </body>
 </html>
