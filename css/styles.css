@@ -28,3 +28,15 @@ header .container { padding-top: .5rem; padding-bottom: .5rem; }
 
 /* Footer */
 footer { font-size: .9rem; color: var(--muted); }
+
+
+/* Parallax degradé */
+
+.parallax-degrade {
+  height: 350px;
+  background:
+    linear-gradient(180deg, rgba(233, 108, 108, 0.973), rgba(142,57,217,0.7)),
+    url('https://www.transparenttextures.com/patterns/soft-circle-scales.png');
+  background-attachment: fixed;
+  background-size: cover;
+}

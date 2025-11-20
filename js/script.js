@@ -1,22 +1,16 @@
 /* script.js
-  - Array de productos (8 items). Ajusta file names en `image` si cambias nombres.
-  - Funciones:
-    - renderProductsGrid(containerId)
-    - addToCart(productId)
-    - updateCartBadge()
-    - renderProductDetail(containerId)
-    - renderCart(listContainerId, actionsContainerId)
+
 */
 
 const PRODUCTS = [
-  { id: 1, title: "Flor Astral", price: 12000, image: "img/flor1.jpg", description: "Una flor que ilumina tus sueños." },
-  { id: 2, title: "Loto Lunar", price: 15000, image: "img/flor2.jpg", description: "Calma la mente y abre la intuición." },
-  { id: 3, title: "Rosa del Alba", price: 9000, image: "img/flor3.jpg", description: "Energía suave y reconfortante." },
-  { id: 4, title: "Orquídea Cósmica", price: 18000, image: "img/flor4.jpg", description: "Exótica y poderosa para rituales." },
-  { id: 5, title: "Jazmín Solar", price: 8000, image: "img/flor5.jpg", description: "Aumenta la alegría y la creatividad." },
-  { id: 6, title: "Campanilla Verde", price: 7000, image: "img/flor6.jpg", description: "Pequeña pero llena de energía." },
-  { id: 7, title: "Hiedra Bendita", price: 6000, image: "img/flor7.jpg", description: "Protección y conexión a la tierra." },
-  { id: 8, title: "Tulipán Etéreo", price: 11000, image: "img/flor8.jpg", description: "Elegante y etéreo." }
+  { id: 1, title: "Cerezo Místico", price: 12000, image: "img/flor1.jpg", description: "Una flor que ilumina tus sueños." },
+  { id: 2, title: "Clavel Lunar", price: 15000, image: "img/flor2.jpg", description: "Calma la mente y abre la intuición." },
+  { id: 3, title: "Girasol del Sol", price: 9000, image: "img/flor3.jpg", description: "Energía suave y reconfortante." },
+  { id: 4, title: "Lírio Cósmico", price: 18000, image: "img/flor4.jpg", description: "Exótica y poderosa para rituales." },
+  { id: 5, title: "Margarita Vibrante", price: 8000, image: "img/flor5.jpg", description: "Aumenta la alegría y la creatividad." },
+  { id: 6, title: "Orquídea Mágica", price: 7000, image: "img/flor6.jpg", description: "Pequeña pero llena de energía." },
+  { id: 7, title: "Rosa Bendita", price: 6000, image: "img/flor7.jpg", description: "Protección y conexión a la tierra." },
+  { id: 8, title: "Tulipán Etéreo", price: 11000, image: "img/flor8.jpg", description: "Elegante y humilde." }
 ];
 
 // --- Utility: CART stored in localStorage under 'pm_cart' (array of {id, qty})
