@@ -228,3 +228,8 @@ function renderCart(listContainerId, actionsContainerId) {
     updateCartBadge();
   });
 }
+// --- Inicialización 
+document.addEventListener('DOMContentLoaded', () => {
+  renderProductsGrid('productos-grid');
+  updateCartBadge();
+});
