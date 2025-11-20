@@ -1,12 +1,12 @@
 /* styles.css - complementa Bootstrap */
 :root{
-  --brand-green: #1d7e47;
+  --brand-green: #197a43;
   --muted: #6c757d;
 }
 
 body {
   font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
-  background: #f7fff9;
+  background: #168b47;
   color: #222;
 }
 
