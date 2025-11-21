@@ -127,7 +127,7 @@ footer {
   background-attachment: fixed;
 }
 
-/* Hero 
+/* Hero */
 .parallax-hero {
   background: url('../img/fondo.png') no-repeat center center fixed;
   background-size: cover;
@@ -135,7 +135,7 @@ footer {
   padding: 120px 0;
   text-align: center;
   position: relative;
-}*/
+}
 
 /* Oscurecimiento */
 .parallax-hero::after {
