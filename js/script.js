@@ -1,5 +1,5 @@
 /* ================================================================
-   PRODUCTOS DISPONIBLES FLORECITAS
+   PRODUCTOS DISPONIBLES
 ================================================================ */
 
 const PRODUCTS = [
@@ -53,7 +53,7 @@ function addToCart(productId, qty = 1) {
 }
 
 /* ================================================================
-   GRID DE PRODUCTOS
+   GRID DE PRODUCTOS (index.html)
 ================================================================ */
 
 function renderProductsGrid(containerId) {
@@ -90,7 +90,7 @@ function renderProductsGrid(containerId) {
 }
 
 /* ================================================================
-   DETALLE DEL PRODUCTO
+   DETALLE DEL PRODUCTO (detail.html)
 ================================================================ */
 
 function getQueryParam(name) {
@@ -133,7 +133,7 @@ function renderProductDetail(containerId) {
 }
 
 /* ================================================================
-   CARRITO
+   CARRITO (cart.html)
 ================================================================ */
 
 function renderCart(listId, actionsId) {
@@ -193,7 +193,7 @@ function renderCart(listId, actionsId) {
     </div>
   `;
 
-  // Cambiar cantidad
+  // Aumentar cantidad
   list.querySelectorAll("[data-increase]").forEach(btn => {
     btn.addEventListener("click", () => {
       const id = Number(btn.dataset.increase);
@@ -206,6 +206,7 @@ function renderCart(listId, actionsId) {
     });
   });
 
+  // Disminuir cantidad
   list.querySelectorAll("[data-decrease]").forEach(btn => {
     btn.addEventListener("click", () => {
       const id = Number(btn.dataset.decrease);
@@ -235,27 +236,28 @@ function renderCart(listId, actionsId) {
 }
 
 /* ================================================================
-   POPUP DE COMPRA
+   POPUP: COMPRA
 ================================================================ */
 
 function initCheckoutPopup() {
   const popup = document.getElementById("popup-compra");
-  const close = document.querySelector(".popup-close");
-  const ok = document.querySelector(".popup-ok");
-
   if (!popup) return;
 
+  const close = popup.querySelector(".popup-close");
+  const ok = popup.querySelector(".popup-ok");
+
   close?.addEventListener("click", () => popup.style.display = "none");
+
   ok?.addEventListener("click", () => {
     popup.style.display = "none";
-    saveCart([]);        // limpia carrito
+    saveCart([]);
     updateCartBadge();
-    location.href = "index.html"; // vuelve a tienda
+    location.href = "index.html";
   });
 }
 
 /* ================================================================
-   POPUP DE AGREGADO
+   POPUP: AGREGADO AL CARRITO
 ================================================================ */
 
 function showAddPopup(message) {
@@ -270,15 +272,27 @@ function showAddPopup(message) {
   setTimeout(() => popup.classList.add("hidden"), 2000);
 }
 
-document.getElementById("btn-add").addEventListener("click", () => {
-  addToCart(product.id);
-});
 /* ================================================================
-   INIT
+   INIT (SE EJECUTA EN TODAS LAS PÁGINAS)
 ================================================================ */
 
 document.addEventListener("DOMContentLoaded", () => {
-  renderProductsGrid("productos-grid");
+
+  // Index
+  if (document.getElementById("productos-grid")) {
+    renderProductsGrid("productos-grid");
+  }
+
+  // Detail
+  if (document.getElementById("detalle-producto")) {
+    renderProductDetail("detalle-producto");
+  }
+
+  // Carrito
+  if (document.getElementById("cart-list") && document.getElementById("cart-actions")) {
+    renderCart("cart-list", "cart-actions");
+  }
+
   updateCartBadge();
   initCheckoutPopup();
 });
