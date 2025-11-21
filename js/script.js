@@ -207,7 +207,7 @@ function renderCart(listContainerId, actionsContainerId) {
       <strong>Total: ${total.toLocaleString()} CLP</strong>
       <div class="d-flex gap-2">
         <button id="btn-clear" class="btn btn-outline-danger btn-sm">Vaciar</button>
-        <button id="btn-checkout" class="btn btn-agregar btn-sm">Comprar</button>
+        <button id="btn-checkout" class="btn btn-comprar btn-sm">Comprar</button>
       </div>
     </div>
   `;
