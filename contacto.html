@@ -20,59 +20,64 @@
 
 <body>
 
-  <!-- ===================================================== -->
-  <!-- HEADER PARALLAX -->
-  <!-- ===================================================== -->
-  <header class="parallax-section">
-    <nav class="navbar container py-3">
-      <a class="navbar-brand fw-bold text-white" href="index.html">Belleza Botánica</a>
-    </nav>
-  </header>
+  <!-- Contenedor que aplica fondo e overlay -->
+  <div class="bg-global">
 
-  <!-- ===================================================== -->
-  <!-- CONTENIDO -->
-  <!-- ===================================================== -->
-  <main class="container my-5">
+    <!-- ===================================================== -->
+    <!-- HEADER PARALLAX -->
+    <!-- ===================================================== -->
+    <header class="parallax-section">
+      <nav class="navbar container py-3">
+        <a class="navbar-brand fw-bold text-white" href="index.html">Belleza Botánica</a>
+      </nav>
+    </header>
 
-    <h2 class="h3 text-white fw-bold mb-3">Contacto</h2>
+    <!-- ===================================================== -->
+    <!-- CONTENIDO -->
+    <!-- ===================================================== -->
+    <main class="container my-5">
 
-    <p class="text-light">
-      Este es un demo increible que merece un siete, por favor contáctanos en:
-      <strong>hola@BellezaBotánica.test</strong>
-    </p>
+      <h2 class="h3 text-white fw-bold mb-3">Contacto</h2>
 
-    <form class="row g-3 mt-3" onsubmit="event.preventDefault(); alert('Mensaje enviado (simulado). ¡Gracias!');">
+      <p class="text-light">
+        Este es un demo increible que merece un siete, por favor contáctanos en:
+        <strong>hola@BellezaBotánica.test</strong>
+      </p>
 
-      <div class="col-12">
-        <input id="nombre" name="nombre" class="form-control bg-light border-0 shadow-sm" placeholder="Nombre" required>
+      <form class="row g-3 mt-3" onsubmit="event.preventDefault(); alert('Mensaje enviado (simulado). ¡Gracias!');">
+
+        <div class="col-12">
+          <input id="nombre" name="nombre" class="form-control bg-light border-0 shadow-sm" placeholder="Nombre" required>
+        </div>
+
+        <div class="col-12">
+          <input id="email" name="email" type="email" class="form-control bg-light border-0 shadow-sm" placeholder="Email" required>
+        </div>
+
+        <div class="col-12">
+          <textarea id="mensaje" name="mensaje" class="form-control bg-light border-0 shadow-sm" rows="4" placeholder="Mensaje" required></textarea>
+        </div>
+
+        <div class="col-12">
+          <button class="btn btn-agregar px-4 py-2 fw-semibold" type="submit">
+            Enviar Mensaje
+          </button>
+        </div>
+
+      </form>
+
+    </main>
+
+    <!-- ===================================================== -->
+    <!-- FOOTER TRANSPARENTE -->
+    <!-- ===================================================== -->
+    <footer class="footer-transparente py-4 mt-5">
+      <div class="container text-center small text-white">
+        © 2025 Belleza Botánica
       </div>
+    </footer>
 
-      <div class="col-12">
-        <input id="email" name="email" type="email" class="form-control bg-light border-0 shadow-sm" placeholder="Email" required>
-      </div>
-
-      <div class="col-12">
-        <textarea id="mensaje" name="mensaje" class="form-control bg-light border-0 shadow-sm" rows="4" placeholder="Mensaje" required></textarea>
-      </div>
-
-      <div class="col-12">
-        <button class="btn btn-agregar px-4 py-2 fw-semibold" type="submit">
-          Enviar Mensaje
-        </button>
-      </div>
-
-    </form>
-
-  </main>
-
-  <!-- ===================================================== -->
-  <!-- FOOTER TRANSPARENTE -->
-  <!-- ===================================================== -->
-  <footer class="footer-transparente py-4 mt-5">
-    <div class="container text-center small text-white">
-      © 2025 Belleza Botánica
-    </div>
-  </footer>
+  </div> <!-- cierre bg-global -->
 
   <!-- ===================================================== -->
   <!-- CONEXIÓN BOOTSTRAP -->
