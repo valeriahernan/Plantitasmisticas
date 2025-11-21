@@ -129,7 +129,7 @@ footer {
 
 /* Hero */
 .parallax-hero {
-  background: url('../img/fondo.png') no-repeat center center fixed;
+  
   background-size: cover;
   color: rgb(255, 245, 187);
   padding: 120px 0;
