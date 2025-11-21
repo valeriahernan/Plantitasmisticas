@@ -121,7 +121,7 @@ footer {
 /* SECCIONES PARALLAX */
 /* ----------------------------------------- */
 .parallax-section {
-  background-image: url('../img/fondo.png');
+  background-color: #28eb0f;
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
