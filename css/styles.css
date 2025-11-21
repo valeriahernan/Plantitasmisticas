@@ -6,7 +6,7 @@
 
 body {
   font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
-  background: #168b47;
+  background: hwb(343 79% 11% / 0.096);
   color: #222;
 }
 
