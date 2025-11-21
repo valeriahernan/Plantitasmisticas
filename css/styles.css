@@ -185,17 +185,16 @@ body::before {
   border-radius: 8px;
 }
 
-/* Overlay adicional 
 .popup-overlay {
   position: fixed;
-  inset: 0;
-  background: rgba(0,0,0,0.65);
-  display: none;
+  inset: 0; /* igual que top:0; right:0; bottom:0; left:0; */
+  background: rgba(0, 0, 0, 0.65);
+  display: flex;
   justify-content: center;
   align-items: center;
-  z-index: 9998;
+  z-index: 9999; /* muy alto para estar encima de todo */
   backdrop-filter: blur(3px);
-}*/
+}
 
 @keyframes popupIn {
   from { transform: scale(0.7); opacity: 0; }
