@@ -55,7 +55,7 @@ function addToCart(productId, qty = 1) {
   updateCartBadge();
 
   const name = PRODUCTS.find(p => p.id === productId)?.title || "Producto";
-  alert(`${name} agregado al carrito`);
+  showPopup(`${name} agregado al carrito`);
 }
 
 /* ================================================================
@@ -115,7 +115,7 @@ function renderProductDetail(containerId) {
   const product = PRODUCTS.find(p => p.id === id);
 
   if (!product) {
-    container.innerHTML = `<p class="text-muted">Producto no encontrado. <a href="index.html">Volver</a></p>`;
+    container.innerHTML = `<p class="text-muted">Producto no encontrado ☹. <a href="index.html">Volver</a></p>`;
     return;
   }
 
@@ -155,7 +155,7 @@ function renderCart(listContainerId, actionsContainerId) {
   const cart = getCart();
 
   if (cart.length === 0) {
-    list.innerHTML = `<p class="text-muted">Tu carrito está vacío. <a href="index.html">Ir a tienda</a></p>`;
+    list.innerHTML = `<p class="text-muted">Tu carrito está vacío ☹. <a href="index.html">Ir a tienda</a></p>`;
     actions.innerHTML = '';
     return;
   }
@@ -251,7 +251,7 @@ function renderCart(listContainerId, actionsContainerId) {
   });
 
   document.getElementById('btn-checkout').addEventListener('click', () => {
-    alert('Compra simulada. ¡Gracias por tu pedido!');
+    alert('Compra simulada. ¡Gracias por tu pedido :D:D:D!');
     saveCart([]);
     renderCart(listContainerId, actionsContainerId);
     updateCartBadge();
@@ -266,3 +266,24 @@ document.addEventListener('DOMContentLoaded', () => {
   renderProductsGrid('productos-grid');
   updateCartBadge();
 });
+
+/* ================================================================
+   POP UP PERSONALIZADO PARA LA COMPRAS
+================================================================ */
+
+function showPopup(message) {
+  const popup = document.getElementById('popup-added');
+  const text = document.getElementById('popup-text');
+  const closeBtn = document.getElementById('popup-close');
+
+  text.textContent = message;
+  popup.classList.remove('hidden');
+
+  // Cerrar al presionar botón
+  closeBtn.onclick = () => popup.classList.add('hidden');
+
+  // Auto-cerrar en 2.2s
+  setTimeout(() => {
+    popup.classList.add('hidden');
+  }, 2200);
+}
