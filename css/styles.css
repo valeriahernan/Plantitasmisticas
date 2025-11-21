@@ -12,7 +12,7 @@ body {
 
 /* Header tweaks */
 .navbar-brand { color: var(--brand-green); font-weight: 700; }
-header .container { padding-top: .5rem; padding-bottom: .5rem; }
+header .container { padding-top: 1rem; padding-bottom: 1rem; }
 
 /* Card image fix to keep aspect */
 .card img, .card-img-top {
