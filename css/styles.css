@@ -32,7 +32,7 @@ footer { font-size: .9rem; color: var(--muted); }
 
 /* PARALLAX con imagen mejor  */
 .parallax-hero {
-   background: url('img/fondo.png') no-repeat center center fixed;
+   background: url('https://valeriahernan.github.io/Plantitasmisticas/img/fondo.png') no-repeat center center fixed;
   background-attachment: fixed;
   background-size: cover;
   background-position: center;
