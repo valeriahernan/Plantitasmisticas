@@ -177,6 +177,71 @@ header .container {
   from { transform: scale(0.85); opacity: 0; }
   to   { transform: scale(1); opacity: 1; }
 }
+/* ===================================================== */
+/* POPUP GRACIAS POR TU COMPRA */
+/* ===================================================== */
+
+.popup-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.65);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  backdrop-filter: blur(3px);
+}
+
+.popup-box {
+  background: #de5c29;                    
+  color: #fcf8d3;                          
+  font-family: 'Josefin Sans', sans-serif;
+  
+  width: 90%;
+  max-width: 350px;
+  padding: 30px;
+  border-radius: 20px;
+
+  text-align: center;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+  animation: popupIn 0.4s ease;
+  position: relative;
+}
+
+.popup-close {
+  position: absolute;
+  top: 10px;
+  right: 12px;
+  background: transparent;
+  border: 0;
+  font-size: 26px;
+  color: #fcf8d3;
+  cursor: pointer;
+}
+
+.popup-title {
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.popup-text {
+  font-weight: 400;
+  margin-bottom: 20px;
+}
+
+.popup-ok {
+  background: #277952 !important;       
+  border: none;
+  color: #fcf8d3;
+  padding: 8px 25px;
+  font-weight: 600;
+  border-radius: 8px;
+}
+
+@keyframes popupIn {
+  from { transform: scale(0.7); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
 
 /* ----------------------------------------- */
 /* FOOTER */

@@ -250,12 +250,27 @@ function renderCart(listContainerId, actionsContainerId) {
     }
   });
 
-  document.getElementById('btn-checkout').addEventListener('click', () => {
-    alert('Compra simulada. ¡Gracias por tu pedido :D:D:D!');
-    saveCart([]);
-    renderCart(listContainerId, actionsContainerId);
-    updateCartBadge();
+// ================================
+// POPUP DE COMPRA
+// ================================
+
+const popup = document.getElementById("popup-compra");
+const btnCheckout = document.getElementById("btn-checkout");
+
+if (btnCheckout) {
+  btnCheckout.addEventListener("click", () => {
+    popup.style.display = "flex";
   });
+}
+
+document.querySelector(".popup-close").addEventListener("click", () => {
+  popup.style.display = "none";
+});
+
+document.querySelector(".popup-ok").addEventListener("click", () => {
+  popup.style.display = "none";
+});
+
 }
 
 /* ================================================================
