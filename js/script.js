@@ -62,7 +62,7 @@ function renderProductsGrid(containerId) {
           <h3 class="card-title h6 mb-2">${product.title}</h3>
           <p class="card-text text-muted mb-2">${(product.price).toLocaleString()} CLP</p>
           <div class="mt-auto d-flex gap-2">
-            <a href="detail.html?id=${product.id}" class="btn btn-sm btn-outline-primary">Ver más</a>
+            <a href="detail.html?id=${product.id}" class="btn btn-sm btn-outline-secondary">Ver más</a>
             <button class="btn btn-sm btn-success" data-add="${product.id}">Agregar</button>
           </div>
         </div>
