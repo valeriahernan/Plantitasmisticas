@@ -185,7 +185,7 @@ body::before {
   border-radius: 8px;
 }
 
-/* Overlay adicional */
+/* Overlay adicional 
 .popup-overlay {
   position: fixed;
   inset: 0;
@@ -195,7 +195,7 @@ body::before {
   align-items: center;
   z-index: 9998;
   backdrop-filter: blur(3px);
-}
+}*/
 
 @keyframes popupIn {
   from { transform: scale(0.7); opacity: 0; }
