@@ -3,24 +3,44 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  
+
+  <!-- ===================================================== -->
+  <!-- FONT -->
+  <!-- ===================================================== -->
+  <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+  
   <title>Belleza Botánica — Home</title>
   <link rel="icon" type="image/png" href="img/ICONO.png">
-  <!-- Bootstrap CSS -->
+
+
+
+
+  <!-- ===================================================== -->
+  <!-- CONEXIÓN BOOTSTRAP -->
+  <!-- ===================================================== -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 
-  <!-- Estilos propios -->
+  <!-- ===================================================== -->
+  <!-- CONEXIÓN ESTILO GLOBAL -->
+  <!-- ===================================================== -->
   <link rel="stylesheet" href="css/styles.css">
   <link rel="stylesheet" href="css/parallax.css">
 </head>
 
 <body>
 
-  <!-- HEADERn Parallax + Brillos 
-  <header id="hero" class="parallax-section d-flex flex-column justify-content-center align-items-center text-center py-5">    
+  <!-- ===================================================== -->
+  <!-- HEADER PARALLAX -->
+  <!-- ===================================================== -->
+  <header class="parallax-section">
 
-     Brillitooooos 
-    <div class="sparkles"></div> -->
+    <!-- Brillos -->
+    <div class="sparkles"></div>
 
+    <!-- NAV -->
     <nav class="navbar navbar-expand-lg container py-3">
       <a class="navbar-brand fw-bold text-white" href="#">Belleza Botánica</a>
 
@@ -31,20 +51,27 @@
       <div class="collapse navbar-collapse" id="navMenu">
         <ul class="navbar-nav ms-auto">
           <li class="nav-item"><a class="nav-link text-white" href="index.html">Home</a></li>
-          <li class="nav-item"><a class="nav-link text-white" href="cart.html">Carrito <span id="cart-badge" class="badge bg-success">0</span></a></li>
+          <li class="nav-item">
+            <a class="nav-link text-white" href="cart.html">
+              Carrito <span id="cart-badge" class="badge bg-success">0</span>
+            </a>
+          </li>
           <li class="nav-item"><a class="nav-link text-white" href="contacto.html">Contacto</a></li>
         </ul>
       </div>
     </nav>
 
-    <!-- Título hero -->
-    <div class="text-center text-white">
+    <!-- HERO -->
+    <div class="text-center text-white mt-3">
       <img src="img/bellezabotánica.png" alt="Belleza Botánica" class="img-fluid" style="max-height: 300px;">
       <p class="lead">Lleva la Primavera a tu hogar</p>
     </div>
   </header>
 
+
+  <!-- ===================================================== -->
   <!-- MAIN CONTENT -->
+  <!-- ===================================================== -->
   <main class="container my-5">
     <section aria-labelledby="productos-title">
       <h2 id="productos-title" class="h4 mb-3">Nuestros Productos</h2>
@@ -53,7 +80,10 @@
     </section>
   </main>
 
+
+  <!-- ===================================================== -->
   <!-- FOOTER -->
+  <!-- ===================================================== -->
   <footer class="footer-transparente py-3 mt-5">
     <div class="container text-center small">
       © 2025 Belleza Botánica SPA —
@@ -61,17 +91,23 @@
     </div>
   </footer>
 
-  <!-- Bootstrap JS -->
+
+  <!-- ===================================================== -->
+  <!-- CONEXIÓN BOOTSTRAP -->
+  <!-- ===================================================== -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
-  <!-- Lógica de productos -->
+  <!-- ===================================================== -->
+  <!-- SCRIPT JS -->
+  <!-- ===================================================== -->
   <script src="js/script.js"></script>
 
   <script>
     document.addEventListener('DOMContentLoaded', () => {
-      renderProductsGrid ('productos-grid');
+      renderProductsGrid('productos-grid');
       updateCartBadge();
     });
   </script>
+
 </body>
 </html>

@@ -1,6 +1,6 @@
-/* script.js
-
-*/
+/* ================================================================
+   PRODUCTOS DISPONIBLES FLORECITAS
+================================================================ */
 
 const PRODUCTS = [
   { id: 1, title: "Cerezo Místico", price: 12000, image: "img/flor1.jpg", description: "Una flor que ilumina tus sueños." },
@@ -13,7 +13,10 @@ const PRODUCTS = [
   { id: 8, title: "Tulipán Etéreo", price: 11000, image: "img/flor8.jpg", description: "Elegante y humilde." }
 ];
 
-// --- Utility: CART stored in localStorage under 'pm_cart' (array of {id, qty})
+/* ================================================================
+   LOCALSTORAGE: CARRITO DE COMPRAS
+================================================================ */
+
 function getCart() {
   try {
     return JSON.parse(localStorage.getItem('pm_cart')) || [];
@@ -21,6 +24,7 @@ function getCart() {
     return [];
   }
 }
+
 function saveCart(cart) {
   localStorage.setItem('pm_cart', JSON.stringify(cart));
 }
@@ -28,27 +32,40 @@ function saveCart(cart) {
 function updateCartBadge() {
   const badge = document.getElementById('cart-badge');
   if (!badge) return;
+  
   const total = getCart().reduce((s, item) => s + item.qty, 0);
   badge.textContent = total;
 }
 
-// --- Add product to cart (increment if exists)
+/* ================================================================
+   ACCIONES DEL CARRITO A EJECUTAR
+================================================================ */
+
 function addToCart(productId, qty = 1) {
   const cart = getCart();
   const found = cart.find(i => i.id === productId);
-  if (found) found.qty += qty;
-  else cart.push({ id: productId, qty });
+
+  if (found) {
+    found.qty += qty;
+  } else {
+    cart.push({ id: productId, qty });
+  }
+
   saveCart(cart);
   updateCartBadge();
-  // feedback simple
-  const name = PRODUCTS.find(p => p.id === productId)?.title || 'Producto';
+
+  const name = PRODUCTS.find(p => p.id === productId)?.title || "Producto";
   alert(`${name} agregado al carrito`);
 }
 
-// --- Render grid of product cards (Bootstrap cards)
+/* ================================================================
+   RENDER: GRID DE PRODUCTOS EN TIENDA
+================================================================ */
+
 function renderProductsGrid(containerId) {
   const container = document.getElementById(containerId);
   if (!container) return;
+
   container.innerHTML = '';
 
   PRODUCTS.forEach(product => {
@@ -60,10 +77,11 @@ function renderProductsGrid(containerId) {
         <img src="${product.image}" class="card-img-top" alt="${product.title}">
         <div class="card-body d-flex flex-column">
           <h3 class="card-title h6 mb-2">${product.title}</h3>
-          <p class="card-text text-muted mb-2">${(product.price).toLocaleString()} CLP</p>
+          <p class="card-text text-white mb-2">${product.price.toLocaleString()} CLP</p>
+
           <div class="mt-auto d-flex gap-2">
-            <a href="detail.html?id=${product.id}" class="btn btn-sm btn-outline-secondary">Ver más</a>
-            <button class="btn btn-sm btn-success" data-add="${product.id}">Agregar</button>
+            <a href="detail.html?id=${product.id}" class="btn btn-sm btn-ver-mas">Ver más</a>
+            <button class="btn btn-sm btn-agregar" data-add="${product.id}">Agregar</button>
           </div>
         </div>
       </article>
@@ -72,16 +90,19 @@ function renderProductsGrid(containerId) {
     container.appendChild(col);
   });
 
-  // Delegation: escucha botones "Agregar"
+  // Eventos de "Agregar"
   container.querySelectorAll('button[data-add]').forEach(btn => {
-    btn.addEventListener('click', (e) => {
+    btn.addEventListener('click', e => {
       const id = Number(e.currentTarget.getAttribute('data-add'));
-      addToCart(id, 1);
+      addToCart(id);
     });
   });
 }
 
-// --- Render detail page based on URL ?id=#
+/* ================================================================
+   RENDER: DETALLE DE PRODUCTO
+================================================================ */
+
 function getQueryParam(name) {
   return new URLSearchParams(location.search).get(name);
 }
@@ -92,67 +113,81 @@ function renderProductDetail(containerId) {
 
   const id = Number(getQueryParam('id'));
   const product = PRODUCTS.find(p => p.id === id);
+
   if (!product) {
-    container.innerHTML = `<p class="text-muted">Producto no encontrado. <a href="index.html">Volver al inicio</a></p>`;
+    container.innerHTML = `<p class="text-muted">Producto no encontrado. <a href="index.html">Volver</a></p>`;
     return;
   }
 
   container.innerHTML = `
     <article class="row g-4 align-items-center">
-      <div class="col-12 col-md-6">
+      <div class="col-md-6">
         <img src="${product.image}" alt="${product.title}" class="img-fluid rounded">
       </div>
-      <div class="col-12 col-md-6">
+
+      <div class="col-md-6">
         <h2>${product.title}</h2>
-        <p class="text-muted">${(product.price).toLocaleString()} CLP</p>
+        <p class="text-muted">${product.price.toLocaleString()} CLP</p>
         <p>${product.description}</p>
+
         <div class="d-flex gap-2">
-          <button id="btn-add" class="btn btn-success">Agregar al carrito</button>
-          <a href="index.html" class="btn btn-outline-secondary">Volver</a>
+          <button id="btn-add" class="btn btn-agregar">Agregar al carrito</button>
+          <a href="index.html" class="btn btn-ver-mas">Volver</a>
         </div>
       </div>
     </article>
   `;
 
   document.getElementById('btn-add').addEventListener('click', () => {
-    addToCart(product.id, 1);
+    addToCart(product.id);
   });
 }
 
-// --- Render cart page
+/* ================================================================
+   RENDER: CARRITO
+================================================================ */
+
 function renderCart(listContainerId, actionsContainerId) {
   const list = document.getElementById(listContainerId);
   const actions = document.getElementById(actionsContainerId);
   if (!list || !actions) return;
 
   const cart = getCart();
+
   if (cart.length === 0) {
     list.innerHTML = `<p class="text-muted">Tu carrito está vacío. <a href="index.html">Ir a tienda</a></p>`;
     actions.innerHTML = '';
     return;
   }
 
-  // Map cart to product info
-  const rows = cart.map(item => {
+  // Render items
+  list.innerHTML = cart.map(item => {
     const prod = PRODUCTS.find(p => p.id === item.id) || {};
     const subtotal = (prod.price || 0) * item.qty;
+
     return `
       <div class="card mb-2">
         <div class="card-body d-flex align-items-center gap-3">
-          <img src="${prod.image}" alt="${prod.title}" style="width:72px;height:72px;object-fit:cover;border-radius:6px;">
+          <img src="${prod.image}" alt="${prod.title}" 
+               style="width:72px;height:72px;object-fit:cover;border-radius:6px;">
+
           <div class="flex-grow-1">
-            <div class="d-flex justify-content-between align-items-start">
+            <div class="d-flex justify-content-between">
               <div>
                 <h6 class="mb-1">${prod.title}</h6>
-                <small class="text-muted">${(prod.price || 0).toLocaleString()} CLP</small>
+                <small class="text-muted">${prod.price.toLocaleString()} CLP</small>
               </div>
+
               <div>
                 <div class="d-flex align-items-center gap-2">
                   <button class="btn btn-sm btn-outline-secondary" data-decrease="${item.id}">-</button>
                   <span>${item.qty}</span>
                   <button class="btn btn-sm btn-outline-secondary" data-increase="${item.id}">+</button>
                 </div>
-                <div class="mt-2 text-end"><strong>${subtotal.toLocaleString()} CLP</strong></div>
+
+                <div class="mt-2 text-end">
+                  <strong>${subtotal.toLocaleString()} CLP</strong>
+                </div>
               </div>
             </div>
           </div>
@@ -161,49 +196,49 @@ function renderCart(listContainerId, actionsContainerId) {
     `;
   }).join('');
 
-  list.innerHTML = rows;
-
-  // Actions (total + botones)
+  // Total y acciones a realizarrs
   const total = cart.reduce((s, item) => {
     const prod = PRODUCTS.find(p => p.id === item.id) || {};
     return s + (prod.price || 0) * item.qty;
   }, 0);
 
   actions.innerHTML = `
-    <div class="d-flex justify-content-between align-items-center">
-      <div><strong>Total:</strong> ${total.toLocaleString()} CLP</div>
+    <div class="d-flex justify-content-between">
+      <strong>Total: ${total.toLocaleString()} CLP</strong>
       <div class="d-flex gap-2">
-        <button id="btn-clear" class="btn btn-outline-danger btn-sm">Vaciar carrito</button>
-        <button id="btn-checkout" class="btn btn-success btn-sm">Simular compra</button>
+        <button id="btn-clear" class="btn btn-outline-danger btn-sm">Vaciar</button>
+        <button id="btn-checkout" class="btn btn-agregar btn-sm">Comprar</button>
       </div>
     </div>
   `;
 
-  // Event listeners for increase/decrease
-  list.querySelectorAll('button[data-increase]').forEach(btn => {
+  /* EVENTOS DEL CARRITO */
+  list.querySelectorAll('[data-increase]').forEach(btn => {
     btn.addEventListener('click', () => {
-      const id = Number(btn.getAttribute('data-increase'));
-      const c = getCart();
-      const it = c.find(x => x.id === id);
-      if (it) it.qty += 1;
-      saveCart(c);
+      const id = Number(btn.dataset.increase);
+      const cart = getCart();
+      const item = cart.find(x => x.id === id);
+      if (item) item.qty++;
+      saveCart(cart);
       renderCart(listContainerId, actionsContainerId);
       updateCartBadge();
     });
   });
 
-  list.querySelectorAll('button[data-decrease]').forEach(btn => {
+  list.querySelectorAll('[data-decrease]').forEach(btn => {
     btn.addEventListener('click', () => {
-      const id = Number(btn.getAttribute('data-decrease'));
-      let c = getCart();
-      const it = c.find(x => x.id === id);
-      if (it) {
-        it.qty -= 1;
-        if (it.qty <= 0) c = c.filter(x => x.id !== id);
-        saveCart(c);
-        renderCart(listContainerId, actionsContainerId);
-        updateCartBadge();
+      const id = Number(btn.dataset.decrease);
+      let cart = getCart();
+      const item = cart.find(x => x.id === id);
+
+      if (item) {
+        item.qty--;
+        if (item.qty <= 0) cart = cart.filter(x => x.id !== id);
       }
+
+      saveCart(cart);
+      renderCart(listContainerId, actionsContainerId);
+      updateCartBadge();
     });
   });
 
@@ -216,13 +251,17 @@ function renderCart(listContainerId, actionsContainerId) {
   });
 
   document.getElementById('btn-checkout').addEventListener('click', () => {
-    alert('Compra simulada. Gracias por tu pedido :)');
+    alert('Compra simulada. ¡Gracias por tu pedido!');
     saveCart([]);
     renderCart(listContainerId, actionsContainerId);
     updateCartBadge();
   });
 }
-// --- Inicialización 
+
+/* ================================================================
+   INITIALIZACIÓN GLOBAL
+================================================================ */
+
 document.addEventListener('DOMContentLoaded', () => {
   renderProductsGrid('productos-grid');
   updateCartBadge();

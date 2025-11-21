@@ -1,60 +1,128 @@
-/* styles.css - complementa Bootstrap */
-:root{
+/* ----------------------------------------- */
+/* VARIABLES GLOBALES */
+/* ----------------------------------------- */
+:root {
   --brand-green: #277952;
+  --orange: #de5c29;
+  --cream: #fcf8d3;
   --muted: #6c757d;
+  --bg-overlay: rgba(250, 200, 166, 0.7);
 }
-/* Body background with fixed image and overlay */
-body {
-  background-image: url('../img/fondo.png');
-  background-size: contain;      /* No se corta nunca */
-  background-repeat: no-repeat;  /* No repetirss */
-  background-position: top center; /* Fija arriba, centrada */
-  background-attachment: fixed;
-  background-color: #fcf8d3;     /* relleno de color debajo */
-}
-/* Overlay to soften the background image */
 
+
+
+/* ----------------------------------------- */
+/* FONDO GLOBALSS */
+/* ----------------------------------------- */
+body {
+  font-family: "Josefin Sans", sans-serif;
+  background-image: url('../img/fondo.png');
+  background-size: contain;      /* Imagen completa sin recorte */
+  background-repeat: no-repeat;
+  background-position: top center;
+  background-attachment: fixed;
+  background-color: var(--cream);
+  min-height: 100vh;
+  position: relative;
+  z-index: 0;     
+  }
+
+/* Capa suaveciru */
 body::before {
   content: "";
   position: fixed;
   inset: 0;
-  background: rgba(250, 200, 166, 0.7);
+  background: var(--bg-overlay);
   pointer-events: none;
   z-index: -1;
 }
 
-/* Header tweaks */
-.navbar-brand { color: var(--brand-green); font-weight: 700; }
-header .container { padding-top: 1rem; padding-bottom: 1rem; }
+/* ----------------------------------------- */
+/* HEADER */
+/* ----------------------------------------- */
+.navbar-brand {
+  color: var(--brand-green);
+  font-weight: 700;
+}
 
-/* Card image fix to keep aspect */
+header .container {
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+
+/* ----------------------------------------- */
+/* PRODUCTOS / CARDS */
+/* ----------------------------------------- */
 .productos-grid {
-  background-color: #fcf8d3;
-  border: 1px solid #de5c29;
+  background-color: var(--cream);
+  border: 1px solid var(--orange);
   box-shadow: 0 2px 6px rgba(37, 14, 1, 0.048);
 }
 
-.card img, .card-img-top {
+/* 🎨 ESTILOS DE LAS CARDS */
+.card {
+  background-color: var(--orange) !important;
+  border: none;
+  border-radius: 12px;
+  color: white;
+  box-shadow: 0px 4px 10px rgba(0,0,0,0.25);
+}
+
+.card-title,
+.card-text {
+  color: white !important;
+}
+
+/* Imágenes de card */
+.card img,
+.card-img-top {
   height: 160px;
   object-fit: cover;
 }
 
-
-/* Small screens: more compact */
-@media (max-width: 420px) {
-  .card img, .card-img-top { height: 140px; }
-  .display-6 { font-size: 1.2rem; }
+/* Botón: VER MÁS */
+.btn-ver-mas {
+  background-color: var(--cream) !important;
+  color: #000 !important;
+  border: none !important;
+  font-weight: 600;
+  border-radius: 8px;
 }
 
-/* Footer */
-footer { font-size: .9rem; color: var(--muted); }
-@media (min-width: 768px) {
+.btn-ver-mas:hover {
+  opacity: 0.9;
+}
+
+/* Botón: AGREGAR */
+.btn-agregar {
+  background-color: var(--brand-green) !important;
+  color: white !important;
+  border: none !important;
+  font-weight: 600;
+  border-radius: 8px;
+}
+
+.btn-agregar:hover {
+  opacity: 0.85;
+}
+
+/* ----------------------------------------- */
+/* FOOTER */
+/* ----------------------------------------- */
+footer {
+  font-size: .9rem;
+  color: var(--muted);
+}
+
 .footer-transparente {
   background: transparent !important;
   border-top: none !important;
-}
+  color: white;
 }
 
+/* ----------------------------------------- */
+/* SECCIONES PARALLAX */
+/* ----------------------------------------- */
 .parallax-section {
   background-image: url('../img/fondo.png');
   background-size: cover;
@@ -62,27 +130,27 @@ footer { font-size: .9rem; color: var(--muted); }
   background-attachment: fixed;
 }
 
-/* PARALLAX con imagen mejor  */
+/* Hero 
 .parallax-hero {
-   background: url('https://valeriahernan.github.io/Plantitasmisticas/img/fondo.png') no-repeat center center fixed;
-  background-attachment: fixed;
+  background: url('../img/fondo.png') no-repeat center center fixed;
   background-size: cover;
-  background-position: center;
   color: rgb(255, 245, 187);
   padding: 120px 0;
   text-align: center;
   position: relative;
-} 
+} */
 
-/* Oscurecer un poquito para que se lea bien */
+/* Oscurecimiento */
 .parallax-hero::after {
   content: "";
   position: absolute;
   inset: 0;
-  background: rgba(0, 0, 0, 0.25); 
-} */ 
+  background: rgba(0, 0, 0, 0.25);
+}
 
-/* BRILLOS ANIMADOS */
+/* ----------------------------------------- */
+/* EFECTO DE BRILLOS */
+/* ----------------------------------------- */
 .sparkle {
   position: absolute;
   width: 8px;
@@ -99,9 +167,17 @@ footer { font-size: .9rem; color: var(--muted); }
   100% { transform: scale(0.5); opacity: 0.4; }
 }
 
-/* Variación para múltiples brillos */
-.sparkle:nth-child(odd) {
-  width: 5px;
-  height: 5px;
-  animation-duration: 3s;
+
+/* ----------------------------------------- */
+/* RESPONSIVE */
+/* ----------------------------------------- */
+@media (max-width: 420px) {
+  .card img,
+  .card-img-top {
+    height: 140px;
+  }
+
+  .display-6 {
+    font-size: 1.2rem;
+  }
 }
