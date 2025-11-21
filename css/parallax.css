@@ -1,6 +1,6 @@
-/* 📌 Fondo parallax con degradado verde aaa morado */
-.parallax-bg {
-  background: linear-gradient(135deg, #3c88cf 0%, #51ace0 100%);
+/* 📌 Fondo parallax con foto */
+.parallax-section {
+  background-image: url('../img/fondo.png'); 
   background-attachment: fixed;
   background-size: cover;
   background-position: center;
