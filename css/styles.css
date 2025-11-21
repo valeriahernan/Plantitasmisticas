@@ -53,13 +53,13 @@ header .container {
 /* ----------------------------------------- */
 .productos-grid {
   background-color: var(--cream);
-  border: 1px solid var(--orange);
+  border: 1px solid var(--cream);
   box-shadow: 0 2px 6px rgba(37, 14, 1, 0.048);
 }
 
 /* 🎨 ESTILOS DE LAS CARDS */
 .card {
-  background-color: var(--orange) !important;
+  background-color: var(--cream) !important;
   border: none;
   border-radius: 12px;
   color: white;
