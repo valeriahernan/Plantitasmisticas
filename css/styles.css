@@ -9,13 +9,10 @@
   --bg-overlay: rgba(250, 200, 166, 0.7);
 }
 
-
-
 /* ----------------------------------------- */
 /* FONDO GLOBALSS */
 /* ----------------------------------------- */
 body {
-  font-family: "Josefin Sans", sans-serif;
   background-image: url('../img/fondo.png');
   background-size: contain;      /* Imagen completa sin recorte */
   background-repeat: no-repeat;
@@ -44,19 +41,10 @@ body::before {
   color: var(--brand-green);
   font-weight: 700;
 }
-.navbar {
-  background: white !important;
-}
 
 header .container {
   padding-top: 1rem;
   padding-bottom: 1rem;
-}
-
-.hero-naranja {
-  background: #ff8c42; /* HERO NARANJA  */
-  padding: 100px 0;
-  color: white;
 }
 
 /* ----------------------------------------- */
@@ -147,7 +135,7 @@ footer {
   padding: 120px 0;
   text-align: center;
   position: relative;
-} */
+}*/
 
 /* Oscurecimiento */
 .parallax-hero::after {
