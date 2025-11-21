@@ -7,7 +7,7 @@
 body {
   font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
   background: hwb(17 16% 13%);
-  color: #e7e5d5;
+  color: rgb(255, 245, 187);
 }
 
 /* Header tweaks */
@@ -36,7 +36,7 @@ footer { font-size: .9rem; color: var(--muted); }
   background-attachment: fixed;
   background-size: cover;
   background-position: center;
-  color: white;
+  color: rgb(255, 245, 187);
   padding: 120px 0;
   text-align: center;
   position: relative;
@@ -55,7 +55,7 @@ footer { font-size: .9rem; color: var(--muted); }
   position: absolute;
   width: 8px;
   height: 8px;
-  background: rgb(243, 238, 207);
+  background: rgb(255, 245, 187);
   border-radius: 50%;
   opacity: 0.8;
   animation: sparkle 2s infinite ease-in-out;
