@@ -10,21 +10,19 @@
 }
 
 /* ----------------------------------------- */
-/* FONDO GLOBALSS */
+/* FONDO GLOBAL */
 /* ----------------------------------------- */
 body {
-  background-color: #de5c29;
-  background-size: cover;      /* Imagen completa sin recorte */
+  background-color: var(--orange);
+  background-size: cover;
   background-repeat: no-repeat;
   background-position: top center;
   background-attachment: fixed;
-  background-color: var(--orange);
   min-height: 100vh;
   position: relative;
-  z-index: 0;     
-  }
+}
 
-/* Capa suaveciru */
+/* Capa suave */
 body::before {
   content: "";
   position: fixed;
@@ -35,13 +33,15 @@ body::before {
 }
 
 /* ----------------------------------------- */
-/* HEADER */
-/* -----------------------------------------
-.navbar {
-  background-color: rgba(255, 255, 255, 0.8) !important;
-  backdrop-filter: blur(4px);
+/* HEADER o PARALLAXX */
+/* ----------------------------------------- */
+.parallax-nav {
+  background-image: url("../img/fondo.png");
+  background-attachment: fixed;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 }
-*/
 
 header .container {
   padding-top: 1rem;
@@ -57,7 +57,6 @@ header .container {
   box-shadow: 0 2px 6px rgba(37, 14, 1, 0.048);
 }
 
-/* 🎨 ESTILOS DE LAS CARDS */
 .card {
   background-color: var(--orange) !important;
   border: none;
@@ -71,18 +70,16 @@ header .container {
   color: white !important;
 }
 
-/* Imágenes de card */
 .card img,
 .card-img-top {
   height: 160px;
   object-fit: cover;
 }
 
-/* Botón: VER MÁS */
+/* Botón VER MÁS */
 .btn-ver-mas {
   background-color: var(--cream) !important;
   color: #000 !important;
-  border: none !important;
   font-weight: 600;
   border-radius: 8px;
 }
@@ -91,11 +88,10 @@ header .container {
   opacity: 0.9;
 }
 
-/* Botón: AGREGAR */
+/* Botón AGREGAR */
 .btn-agregar {
   background-color: var(--brand-green) !important;
   color: white !important;
-  border: none !important;
   font-weight: 600;
   border-radius: 8px;
 }
@@ -106,9 +102,8 @@ header .container {
 
 /* Botón COMPRAR */
 .btn-comprar {
-  background-color: #277952 !important;
+  background-color: var(--brand-green) !important;
   color: white !important;
-  border: none !important;
   font-weight: 600;
   border-radius: 8px;
   padding: 10px 18px;
@@ -119,11 +114,9 @@ header .container {
   opacity: 0.85;
 }
 
-
-/* -------------------------------------------------- */
-/* POPUP AGREGADO AL CARRITO PERSONALIZADO */
-/* -------------------------------------------------- */
-
+/* ----------------------------------------- */
+/* POPUP: AGREGADO AL CARRITO */
+/* ----------------------------------------- */
 .popup-added {
   position: fixed;
   top: 0; left: 0;
@@ -140,47 +133,52 @@ header .container {
   display: none;
 }
 
+/* ----------------------------------------- */
+/* POPUP GENERALSSS */
+/* ----------------------------------------- */
 .popup-box {
   background: #de5c29;
   color: #fcf8d3;
-  padding: 28px 30px;
-  border-radius: 14px;
+  font-family: 'Josefin Sans', sans-serif;
   width: 90%;
   max-width: 380px;
+  padding: 30px;
+  border-radius: 18px;
   text-align: center;
-  font-family: 'Josefin Sans', sans-serif;
-  box-shadow: 0 4px 14px rgba(0,0,0,0.25);
-  animation: popupFade 0.25s ease-out;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+  animation: popupIn 0.3s ease-out;
+  position: relative;
 }
 
 .popup-box p {
-  margin: 0 0 16px;
+  margin-bottom: 16px;
   font-size: 1.2rem;
   font-weight: 600;
 }
 
-#popup-close {
-  background: #277952;
+/* Botón cerrar X */
+.popup-close {
+  position: absolute;
+  top: 10px;
+  right: 12px;
+  background: none;
   border: none;
-  padding: 8px 20px;
-  color: white;
+  font-size: 26px;
+  color: #fcf8d3;
+  cursor: pointer;
+}
+
+/* Botón OK */
+.popup-ok {
+  background: var(--brand-green) !important;
+  border: none;
+  color: #fcf8d3;
+  padding: 8px 25px;
   font-weight: 600;
   border-radius: 8px;
-  font-family: 'Josefin Sans', sans-serif;
 }
 
-#popup-close:hover {
-  opacity: 0.9;
-}
-
-@keyframes popupFade {
-  from { transform: scale(0.85); opacity: 0; }
-  to   { transform: scale(1); opacity: 1; }
-}
-/* ===================================================== */
-/* POPUP GRACIAS POR TU COMPRA */
-/* ===================================================== */
-
+/* Fondo del popup de compra */
 .popup-overlay {
   position: fixed;
   inset: 0;
@@ -192,52 +190,6 @@ header .container {
   backdrop-filter: blur(3px);
 }
 
-.popup-box {
-  background: #de5c29;                    
-  color: #fcf8d3;                          
-  font-family: 'Josefin Sans', sans-serif;
-  
-  width: 90%;
-  max-width: 350px;
-  padding: 30px;
-  border-radius: 20px;
-
-  text-align: center;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.3);
-  animation: popupIn 0.4s ease;
-  position: relative;
-}
-
-.popup-close {
-  position: absolute;
-  top: 10px;
-  right: 12px;
-  background: transparent;
-  border: 0;
-  font-size: 26px;
-  color: #fcf8d3;
-  cursor: pointer;
-}
-
-.popup-title {
-  font-weight: 700;
-  margin-bottom: 10px;
-}
-
-.popup-text {
-  font-weight: 400;
-  margin-bottom: 20px;
-}
-
-.popup-ok {
-  background: #277952 !important;       
-  border: none;
-  color: #fcf8d3;
-  padding: 8px 25px;
-  font-weight: 600;
-  border-radius: 8px;
-}
-
 @keyframes popupIn {
   from { transform: scale(0.7); opacity: 0; }
   to { transform: scale(1); opacity: 1; }
@@ -245,50 +197,17 @@ header .container {
 
 /* ----------------------------------------- */
 /* FOOTER */
-/* ----------------------------------------- 
-.footer-overlay {
-  background-color: rgba(255, 255, 255, 0.8);
-  backdrop-filter: blur(3px);
-  }
-
-/* .footer-transparente {
-  background: transparent !important;
-  border-top: none !important;
-  color: white;
-}*/ 
-
 /* ----------------------------------------- */
-/* SECCIONES PARALLAX */
-/* ----------------------------------------- */
-
-/*  
-  .parallax-section {
-  background-color: #de5c29;
-  background-size: cover;
-  background-position: center;
-  background-attachment: fixed;
-}*/
-
-.parallax-nav,
 .parallax-footer {
-  background-image: url("../img/fondo.png"); /* SÓLO HEADER Y FOOTER */
+  background-image: url("../img/fondo.png");
   background-attachment: fixed;
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-} 
-
-
-/* Oscurecimiento 
-.parallax-hero::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: rgba(0, 0, 0, 0.25);
-}*/
+}
 
 /* ----------------------------------------- */
-/* EFECTO DE BRILLOS */
+/* EFECTO BRILLO */
 /* ----------------------------------------- */
 .sparkle {
   position: absolute;
@@ -306,7 +225,6 @@ header .container {
   100% { transform: scale(0.5); opacity: 0.4; }
 }
 
-
 /* ----------------------------------------- */
 /* RESPONSIVE */
 /* ----------------------------------------- */
@@ -315,7 +233,6 @@ header .container {
   .card-img-top {
     height: 140px;
   }
-
   .display-6 {
     font-size: 1.2rem;
   }

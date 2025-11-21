@@ -14,63 +14,57 @@ const PRODUCTS = [
 ];
 
 /* ================================================================
-   LOCALSTORAGE: CARRITO DE COMPRAS
+   LOCAL STORAGE
 ================================================================ */
 
 function getCart() {
-  try {
-    return JSON.parse(localStorage.getItem('pm_cart')) || [];
-  } catch {
-    return [];
-  }
+  try { return JSON.parse(localStorage.getItem("pm_cart")) || []; }
+  catch { return []; }
 }
 
 function saveCart(cart) {
-  localStorage.setItem('pm_cart', JSON.stringify(cart));
+  localStorage.setItem("pm_cart", JSON.stringify(cart));
 }
 
 function updateCartBadge() {
-  const badge = document.getElementById('cart-badge');
+  const badge = document.getElementById("cart-badge");
   if (!badge) return;
-  
-  const total = getCart().reduce((s, item) => s + item.qty, 0);
+
+  const total = getCart().reduce((s, i) => s + i.qty, 0);
   badge.textContent = total;
 }
 
 /* ================================================================
-   ACCIONES DEL CARRITO A EJECUTAR
+   AÑADIR AL CARRITO
 ================================================================ */
 
 function addToCart(productId, qty = 1) {
   const cart = getCart();
   const found = cart.find(i => i.id === productId);
 
-  if (found) {
-    found.qty += qty;
-  } else {
-    cart.push({ id: productId, qty });
-  }
+  if (found) found.qty += qty;
+  else cart.push({ id: productId, qty });
 
   saveCart(cart);
   updateCartBadge();
 
   const name = PRODUCTS.find(p => p.id === productId)?.title || "Producto";
-  showPopup(`${name} agregado al carrito`);
+  showAddPopup(`${name} agregado al carrito`);
 }
 
 /* ================================================================
-   RENDER: GRID DE PRODUCTOS EN TIENDA
+   GRID DE PRODUCTOS
 ================================================================ */
 
 function renderProductsGrid(containerId) {
   const container = document.getElementById(containerId);
   if (!container) return;
 
-  container.innerHTML = '';
+  container.innerHTML = "";
 
   PRODUCTS.forEach(product => {
-    const col = document.createElement('div');
-    col.className = 'col-6 col-md-4 col-lg-3';
+    const col = document.createElement("div");
+    col.className = "col-6 col-md-4 col-lg-3";
 
     col.innerHTML = `
       <article class="card h-100">
@@ -90,17 +84,13 @@ function renderProductsGrid(containerId) {
     container.appendChild(col);
   });
 
-  // Eventos de "Agregar"
-  container.querySelectorAll('button[data-add]').forEach(btn => {
-    btn.addEventListener('click', e => {
-      const id = Number(e.currentTarget.getAttribute('data-add'));
-      addToCart(id);
-    });
+  container.querySelectorAll("[data-add]").forEach(btn => {
+    btn.addEventListener("click", () => addToCart(Number(btn.dataset.add)));
   });
 }
 
 /* ================================================================
-   RENDER: DETALLE DE PRODUCTO
+   DETALLE DEL PRODUCTO
 ================================================================ */
 
 function getQueryParam(name) {
@@ -111,11 +101,11 @@ function renderProductDetail(containerId) {
   const container = document.getElementById(containerId);
   if (!container) return;
 
-  const id = Number(getQueryParam('id'));
+  const id = Number(getQueryParam("id"));
   const product = PRODUCTS.find(p => p.id === id);
 
   if (!product) {
-    container.innerHTML = `<p class="text-muted">Producto no encontrado ☹. <a href="index.html">Volver</a></p>`;
+    container.innerHTML = `<p class="text-muted">Producto no encontrado. <a href="index.html">Volver</a></p>`;
     return;
   }
 
@@ -124,7 +114,6 @@ function renderProductDetail(containerId) {
       <div class="col-md-6">
         <img src="${product.image}" alt="${product.title}" class="img-fluid rounded">
       </div>
-
       <div class="col-md-6">
         <h2>${product.title}</h2>
         <p class="text-muted">${product.price.toLocaleString()} CLP</p>
@@ -138,68 +127,60 @@ function renderProductDetail(containerId) {
     </article>
   `;
 
-  document.getElementById('btn-add').addEventListener('click', () => {
+  document.getElementById("btn-add").addEventListener("click", () => {
     addToCart(product.id);
   });
 }
 
 /* ================================================================
-   RENDER: CARRITO
+   CARRITO
 ================================================================ */
 
-function renderCart(listContainerId, actionsContainerId) {
-  const list = document.getElementById(listContainerId);
-  const actions = document.getElementById(actionsContainerId);
+function renderCart(listId, actionsId) {
+  const list = document.getElementById(listId);
+  const actions = document.getElementById(actionsId);
   if (!list || !actions) return;
 
   const cart = getCart();
 
   if (cart.length === 0) {
-    list.innerHTML = `<p class="text-muted">Tu carrito está vacío ☹. <a href="index.html">Ir a tienda</a></p>`;
-    actions.innerHTML = '';
+    list.innerHTML = `<p class="text-muted">Tu carrito está vacío. <a href="index.html">Ir a tienda</a></p>`;
+    actions.innerHTML = "";
     return;
   }
 
-  // Render items
   list.innerHTML = cart.map(item => {
-    const prod = PRODUCTS.find(p => p.id === item.id) || {};
-    const subtotal = (prod.price || 0) * item.qty;
+    const prod = PRODUCTS.find(p => p.id === item.id);
+    const subtotal = prod.price * item.qty;
 
     return `
       <div class="card mb-2">
         <div class="card-body d-flex align-items-center gap-3">
-          <img src="${prod.image}" alt="${prod.title}" 
-               style="width:72px;height:72px;object-fit:cover;border-radius:6px;">
-
-          <div class="flex-grow-1">
-            <div class="d-flex justify-content-between">
-              <div>
-                <h6 class="mb-1">${prod.title}</h6>
-                <small class="text-muted">${prod.price.toLocaleString()} CLP</small>
+          <img src="${prod.image}" style="width:72px;height:72px;object-fit:cover;border-radius:6px">
+          <div class="flex-grow-1 d-flex justify-content-between">
+            <div>
+              <h6 class="mb-1">${prod.title}</h6>
+              <small class="text-muted">${prod.price.toLocaleString()} CLP</small>
+            </div>
+            <div>
+              <div class="d-flex align-items-center gap-2">
+                <button class="btn btn-sm btn-outline-secondary" data-decrease="${item.id}">-</button>
+                <span>${item.qty}</span>
+                <button class="btn btn-sm btn-outline-secondary" data-increase="${item.id}">+</button>
               </div>
-
-              <div>
-                <div class="d-flex align-items-center gap-2">
-                  <button class="btn btn-sm btn-outline-secondary" data-decrease="${item.id}">-</button>
-                  <span>${item.qty}</span>
-                  <button class="btn btn-sm btn-outline-secondary" data-increase="${item.id}">+</button>
-                </div>
-
-                <div class="mt-2 text-end">
-                  <strong>${subtotal.toLocaleString()} CLP</strong>
-                </div>
+              <div class="mt-2 text-end">
+                <strong>${subtotal.toLocaleString()} CLP</strong>
               </div>
             </div>
           </div>
         </div>
       </div>
     `;
-  }).join('');
+  }).join("");
 
-  // Total y acciones a realizarrs
-  const total = cart.reduce((s, item) => {
-    const prod = PRODUCTS.find(p => p.id === item.id) || {};
-    return s + (prod.price || 0) * item.qty;
+  const total = cart.reduce((s, i) => {
+    const p = PRODUCTS.find(prod => prod.id === i.id);
+    return s + p.price * i.qty;
   }, 0);
 
   actions.innerHTML = `
@@ -207,98 +188,94 @@ function renderCart(listContainerId, actionsContainerId) {
       <strong>Total: ${total.toLocaleString()} CLP</strong>
       <div class="d-flex gap-2">
         <button id="btn-clear" class="btn btn-outline-danger btn-sm">Vaciar</button>
-        <button id="btn-comprar" class="btn btn-comprar btn-sm">Comprar</button>
+        <button id="btn-checkout" class="btn btn-comprar btn-sm">Comprar</button>
       </div>
     </div>
   `;
 
-  /* EVENTOS DEL CARRITO */
-  list.querySelectorAll('[data-increase]').forEach(btn => {
-    btn.addEventListener('click', () => {
+  // Cambiar cantidad
+  list.querySelectorAll("[data-increase]").forEach(btn => {
+    btn.addEventListener("click", () => {
       const id = Number(btn.dataset.increase);
       const cart = getCart();
       const item = cart.find(x => x.id === id);
-      if (item) item.qty++;
+      item.qty++;
       saveCart(cart);
-      renderCart(listContainerId, actionsContainerId);
+      renderCart(listId, actionsId);
       updateCartBadge();
     });
   });
 
-  list.querySelectorAll('[data-decrease]').forEach(btn => {
-    btn.addEventListener('click', () => {
+  list.querySelectorAll("[data-decrease]").forEach(btn => {
+    btn.addEventListener("click", () => {
       const id = Number(btn.dataset.decrease);
       let cart = getCart();
       const item = cart.find(x => x.id === id);
-
-      if (item) {
-        item.qty--;
-        if (item.qty <= 0) cart = cart.filter(x => x.id !== id);
-      }
-
+      item.qty--;
+      if (item.qty <= 0) cart = cart.filter(x => x.id !== id);
       saveCart(cart);
-      renderCart(listContainerId, actionsContainerId);
+      renderCart(listId, actionsId);
       updateCartBadge();
     });
   });
 
-  document.getElementById('btn-clear').addEventListener('click', () => {
-    if (confirm('¿Vaciar carrito?')) {
+  // Vaciar carrito
+  document.getElementById("btn-clear").addEventListener("click", () => {
+    if (confirm("¿Vaciar carrito?")) {
       saveCart([]);
-      renderCart(listContainerId, actionsContainerId);
+      renderCart(listId, actionsId);
       updateCartBadge();
     }
   });
 
-// ================================
-// POPUP DE COMPRA
-// ================================
-
-const popup = document.getElementById("popup-compra");
-const btnCheckout = document.getElementById("btn-comprar");
-
-if (btnCheckout) {
-  btnCheckout.addEventListener("click", () => {
-    popup.style.display = "flex";
+  // Comprar → abre popup
+  document.getElementById("btn-checkout").addEventListener("click", () => {
+    document.getElementById("popup-compra").style.display = "flex";
   });
 }
 
-document.querySelector(".popup-close").addEventListener("click", () => {
-  popup.style.display = "none";
-});
+/* ================================================================
+   POPUP DE COMPRA
+================================================================ */
 
-document.querySelector(".popup-ok").addEventListener("click", () => {
-  popup.style.display = "none";
-});
+function initCheckoutPopup() {
+  const popup = document.getElementById("popup-compra");
+  const close = document.querySelector(".popup-close");
+  const ok = document.querySelector(".popup-ok");
 
+  if (!popup) return;
+
+  close?.addEventListener("click", () => popup.style.display = "none");
+  ok?.addEventListener("click", () => {
+    popup.style.display = "none";
+    saveCart([]);        // limpia carrito
+    updateCartBadge();
+    location.href = "index.html"; // vuelve a tienda
+  });
 }
 
 /* ================================================================
-   INITIALIZACIÓN GLOBAL
+   POPUP DE AGREGADO
 ================================================================ */
 
-document.addEventListener('DOMContentLoaded', () => {
-  renderProductsGrid('productos-grid');
-  updateCartBadge();
-});
+function showAddPopup(message) {
+  const popup = document.getElementById("popup-added");
+  const text = document.getElementById("popup-text");
 
-/* ================================================================
-   POP UP PERSONALIZADO PARA LA COMPRAS
-================================================================ */
-
-function showPopup(message) {
-  const popup = document.getElementById('popup-added');
-  const text = document.getElementById('popup-text');
-  const closeBtn = document.getElementById('popup-close');
+  if (!popup || !text) return;
 
   text.textContent = message;
-  popup.classList.remove('hidden');
+  popup.classList.remove("hidden");
 
-  // Cerrar al presionar botón
-  closeBtn.onclick = () => popup.classList.add('hidden');
-
-  // Auto-cerrar en 2.2s
-  setTimeout(() => {
-    popup.classList.add('hidden');
-  }, 2200);
+  setTimeout(() => popup.classList.add("hidden"), 2000);
 }
+
+/* ================================================================
+   INIT
+================================================================ */
+
+document.addEventListener("DOMContentLoaded", () => {
+  renderProductsGrid("productos-grid");
+  updateCartBadge();
+  initCheckoutPopup();
+});
