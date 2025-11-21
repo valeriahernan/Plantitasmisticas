@@ -5,10 +5,10 @@
 }
 
 body {
-  font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
-  background: #de5c29;
-  color: #fcf8d3;
+  background-color: transparent !important;
+  background: none !important;
 }
+
 
 /* Header tweaks */
 .navbar-brand { color: var(--brand-green); font-weight: 700; }
