@@ -16,7 +16,7 @@
 
 
   <!-- ===================================================== -->
-  <!-- CONEXIÓN BOOTSTRAP -->
+  <!-- FONT -->
   <!-- ===================================================== -->
   <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
 
@@ -35,34 +35,44 @@
 
 <body>
 
-  <!-- ===================================================== -->
-  <!-- HEADER PARALLAX -->
-  <!-- ===================================================== -->
-  <header class="parallax-section">
+<!-- ===================================================== -->
+<!-- HEADER PARALLAX -->
+<!-- ===================================================== -->
+<header class="parallax-nav">
+  <nav class="navbar navbar-expand-lg container py-3">
 
-    <!-- Brillos -->
+    <!-- LOGO -->
+    <a class="navbar-brand fw-bold text-white" href="index.html">Belleza Botánica</a>
+
+    <!-- Brillitos -->
     <div class="sparkles"></div>
 
-    <!-- NAV -->
-    <nav class="navbar navbar-expand-lg container py-3">
-      <a class="navbar-brand fw-bold text-white" href="#">Belleza Botánica</a>
+    <!-- BOTÓN MOBILE -->
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
+      <span class="navbar-toggler-icon"></span>
+    </button>
 
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
-        <span class="navbar-toggler-icon"></span>
-      </button>
+    <!-- MENÚ -->
+    <div class="collapse navbar-collapse" id="navMenu">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item">
+          <a class="nav-link text-white" href="index.html">Home</a>
+        </li>
 
-      <div class="collapse navbar-collapse" id="navMenu">
-        <ul class="navbar-nav ms-auto">
-          <li class="nav-item"><a class="nav-link text-white" href="index.html">Home</a></li>
-          <li class="nav-item">
-            <a class="nav-link text-white" href="cart.html">
-              Carrito <span id="cart-badge" class="badge bg-success">0</span>
-            </a>
-          </li>
-          <li class="nav-item"><a class="nav-link text-white" href="contacto.html">Contacto</a></li>
-        </ul>
-      </div>
-    </nav>
+        <li class="nav-item">
+          <a class="nav-link text-white" href="cart.html">
+            Carrito <span id="cart-badge" class="badge bg-success">0</span>
+          </a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link text-white" href="contacto.html">Contacto</a>
+        </li>
+      </ul>
+    </div>
+
+  </nav>
+</header>
 
     <!-- HERO -->
     <div class="text-center text-white mt-3">
@@ -103,12 +113,12 @@
       updateCartBadge();
     });
   </script>
-  
+
  <!-- ===================================================== -->
   <!-- FOOTER -->
   <!-- ===================================================== -->
-  <footer class="footer-transparente py-3 mt-5">
-    <div class="container text-center small">
+  <footer class="parallax-footer py-4 mt-5">
+  <div class="footer-overlay text-center small">
       © 2025 Belleza Botánica SPA —
       <a href="https://github.com/valeriahernan/Plantitasmisticas" target="_blank"></a>
     </div>

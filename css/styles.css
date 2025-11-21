@@ -13,7 +13,7 @@
 /* FONDO GLOBALSS */
 /* ----------------------------------------- */
 body {
-  background-color: var(--orange);
+  background-color: #de5c29;
   background-size: cover;      /* Imagen completa sin recorte */
   background-repeat: no-repeat;
   background-position: top center;
@@ -37,10 +37,11 @@ body::before {
 /* ----------------------------------------- */
 /* HEADER */
 /* ----------------------------------------- */
-.navbar-brand {
-  color: var(--brand-green);
-  font-weight: 700;
+.navbar {
+  background-color: rgba(255, 255, 255, 0.8) !important;
+  backdrop-filter: blur(4px);
 }
+
 
 header .container {
   padding-top: 1rem;
@@ -106,44 +107,46 @@ header .container {
 /* ----------------------------------------- */
 /* FOOTER */
 /* ----------------------------------------- */
-footer {
-  font-size: .9rem;
-  color: var(--muted);
-}
+.footer-overlay {
+  background-color: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(3px);
+  }
 
-.footer-transparente {
+/* .footer-transparente {
   background: transparent !important;
   border-top: none !important;
-  color: rgba(255, 255, 255, 0);
-}
+  color: white;
+}*/ 
 
 /* ----------------------------------------- */
 /* SECCIONES PARALLAX */
 /* ----------------------------------------- */
-.parallax-section {
+
+/*  
+  .parallax-section {
   background-color: #de5c29;
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
-}
+}*/
 
-/* Hero */
-.parallax-hero {
-  background-color: #de5c29;
+.parallax-nav,
+.parallax-footer {
+  background-image: url("../img/fondo.png"); /* SÓLO HEADER Y FOOTER */
+  background-attachment: fixed;
   background-size: cover;
-  color: rgb(255, 245, 187);
-  padding: 120px 0;
-  text-align: center;
-  position: relative;
-}
+  background-position: center;
+  background-repeat: no-repeat;
+} 
 
-/* Oscurecimiento */
+
+/* Oscurecimiento 
 .parallax-hero::after {
   content: "";
   position: absolute;
   inset: 0;
   background: rgba(0, 0, 0, 0.25);
-}
+}*/
 
 /* ----------------------------------------- */
 /* EFECTO DE BRILLOS */
