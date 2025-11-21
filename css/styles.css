@@ -6,7 +6,7 @@
   --orange: #de5c29;
   --cream: #fcf8d3;
   --muted: #6c757d;
-  --bg-overlay: rgba(255, 174, 174, 0.7);
+  --bg-overlay: rgba(255, 113, 70, 0.7);
 }
 
 /* ----------------------------------------- */
@@ -79,7 +79,7 @@ header .container {
 /* Botón VER MÁS */
 .btn-ver-mas {
   background-color: var(--cream) !important;
-  color: #000 !important;
+  color: #332315 !important;
   font-weight: 600;
   border-radius: 8px;
 }
