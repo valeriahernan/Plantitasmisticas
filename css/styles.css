@@ -17,7 +17,8 @@ body::before {
   content: "";
   position: fixed;
   inset: 0;
-  background: rgba(252, 248, 211, 0.70); /* beige #fcf8d3 con transparencia */
+  background: #de5c29; /* Overlay color */
+  opacity: 0.2; /* Overlay opacity */
   pointer-events: none;
   z-index: -1;
 }
