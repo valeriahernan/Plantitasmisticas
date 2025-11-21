@@ -8,7 +8,7 @@ body {
   background-color: transparent !important;
   background: none !important;
 }
-}
+
 
 /* Header tweaks */
 .navbar-brand { color: var(--brand-green); font-weight: 700; }
