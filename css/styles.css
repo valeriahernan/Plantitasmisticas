@@ -5,10 +5,10 @@
 }
 
 body {
-  background-color: transparent !important;
-  background: none !important;
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  background: #de5c29;
+  color: #fcf8d3;
 }
-
 
 /* Header tweaks */
 .navbar-brand { color: var(--brand-green); font-weight: 700; }
@@ -35,8 +35,6 @@ header .container { padding-top: 1rem; padding-bottom: 1rem; }
 
 /* Footer */
 footer { font-size: .9rem; color: var(--muted); }
-
-
 .footer-transparente {
   background-color: transparent !important;
   border-top: none !important;
