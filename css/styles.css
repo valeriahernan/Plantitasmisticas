@@ -44,10 +44,19 @@ body::before {
   color: var(--brand-green);
   font-weight: 700;
 }
+.navbar {
+  background: white !important;
+}
 
 header .container {
   padding-top: 1rem;
   padding-bottom: 1rem;
+}
+
+.hero-naranja {
+  background: #ff8c42; /* HERO NARANJA  */
+  padding: 100px 0;
+  color: white;
 }
 
 /* ----------------------------------------- */
