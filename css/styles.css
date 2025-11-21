@@ -15,7 +15,7 @@ body {
 header .container { padding-top: 1rem; padding-bottom: 1rem; }
 
 /* Card image fix to keep aspect */
-.card-beige {
+.productos-grid {
   background-color: #fcf8d3;
   border: 1px solid #de5c29;
   box-shadow: 0 2px 6px rgba(37, 14, 1, 0.048);
