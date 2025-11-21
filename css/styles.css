@@ -30,7 +30,7 @@ header .container { padding-top: 1rem; padding-bottom: 1rem; }
 footer { font-size: .9rem; color: var(--muted); }
 
 
-/* PARALLAX con imagen mejor  */
+/* PARALLAX con imagen mejor  
 .parallax-hero {
    background: url('img/fondo.png') no-repeat center center fixed;
   background-attachment: fixed;
@@ -40,15 +40,15 @@ footer { font-size: .9rem; color: var(--muted); }
   padding: 120px 0;
   text-align: center;
   position: relative;
-}
+} */
 
-/* Oscurecer un poquito para que se lea bien */
+/* Oscurecer un poquito para que se lea bien 
 .parallax-hero::after {
   content: "";
   position: absolute;
   inset: 0;
-  background: rgba(0, 0, 0, 0.25);
-}
+  background: rgba(0, 0, 0, 0.25); 
+} */ 
 
 /* BRILLOS ANIMADOS */
 .sparkle {
