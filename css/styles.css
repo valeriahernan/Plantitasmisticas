@@ -6,7 +6,7 @@
   --orange: #de5c29;
   --cream: #fcf8d3;
   --muted: #6c757d;
-  --bg-overlay: rgba(250, 200, 166, 0.7);
+  --bg-overlay: rgba(255, 169, 129, 0.7);
 }
 
 /* ----------------------------------------- */
@@ -29,7 +29,7 @@ body::before {
   content: "";
   position: fixed;
   inset: 0;
-  background: var(--bg-overlay);
+  background: var(--orange);
   pointer-events: none;
   z-index: -1;
 }
