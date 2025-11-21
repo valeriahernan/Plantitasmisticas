@@ -1,6 +1,6 @@
 /* 📌 Fondo parallax con foto */
 .parallax-section {
-  background-image: url('../img/fondo.png');
+  background-image: url('https://valeriahernan.github.io/Plantitasmisticas/img/fondo.png');
   background-attachment: fixed;
   background-size: cover;
   background-position: center;
