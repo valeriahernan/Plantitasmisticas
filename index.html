@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <!-- ===================================================== -->
-  <!-- FONT -->
+  <!-- FUENTE -->
   <!-- ===================================================== -->
   <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
 
@@ -21,10 +21,15 @@
   <!-- ESTILOS -->
   <!-- ===================================================== -->
   <link rel="stylesheet" href="css/styles.css">
-  <link rel="stylesheet" href="css/parallax.css">
+
 </head>
 
 <body>
+
+<!-- ===================================================== -->
+<!-- WRAPPER GLOBAL CON FONDO -->
+<!-- ===================================================== -->
+<div class="bg-global">
 
 <!-- ===================================================== -->
 <!-- HEADER PARALLAX -->
@@ -33,9 +38,11 @@
   <nav class="navbar navbar-expand-lg container py-3">
 
     <!-- LOGO -->
-    <a class="navbar-brand fw-bold text-white" href="index.html">Belleza Botánica</a>
+    <a class="navbar-brand fw-bold text-white" href="index.html">
+      Belleza Botánica
+    </a>
 
-    <!-- BRILLITOS -->
+    <!-- BRILLITOS PARA DECORACIÓN -->
     <div class="sparkles"></div>
 
     <!-- BOTÓN MOBILE -->
@@ -66,33 +73,41 @@
 </header>
 
 
+<!-- ===================================================== -->
 <!-- HERO -->
-<div class="text-center text-white mt-3">
-  <img src="img/bellezabotánica.png" alt="Belleza Botánica" class="img-fluid" style="max-height: 300px;">
+<!-- ===================================================== -->
+<section class="text-center text-white mt-3">
+  <img src="img/bellezabotánica.png" alt="Belleza Botánica" 
+       class="img-fluid" style="max-height: 300px;">
   <p class="lead">Lleva la Primavera a tu hogar</p>
-</div>
+</section>
 
 
 <!-- ===================================================== -->
 <!-- MAIN CONTENT -->
 <!-- ===================================================== -->
 <main class="container my-5">
-  <section aria-labelledby="productos-title">
+  
+  <section aria-labelledby="productos-title" class="productos-grid p-3 rounded">
     <h2 id="productos-title" class="h4 mb-3">Nuestros Productos</h2>
 
+    <!-- PLACEHOLDER PARA LAS CARDS GENERADAS CON JS -->
     <div id="productos-grid" class="row g-3"></div>
+
   </section>
+
 </main>
 
 
 <!-- ===================================================== -->
-<!-- FOOTER -->
+<!-- FOOTER PARALLAX -->
 <!-- ===================================================== -->
-<footer class="parallax-footer py-4 mt-5">
-  <div class="footer-overlay text-center small">
-    © 2025 Belleza Botánica SPA —
-    <a href="https://github.com/valeriahernan/Plantitasmisticas" target="_blank"></a>
-  </div>
+<footer class="parallax-footer py-4 mt-5 text-center text-white">
+  © 2025 Belleza Botánica SPA — 
+  <a href="https://github.com/valeriahernan/Plantitasmisticas" 
+     target="_blank" class="text-white text-decoration-underline">
+     GitHub
+  </a>
 </footer>
 
 
@@ -101,8 +116,9 @@
 <!-- ===================================================== -->
 <div id="popup-added" class="popup-added hidden">
   <div class="popup-box">
+    <button class="popup-close">&times;</button>
     <p id="popup-text">Producto agregado al carrito</p>
-    <button id="popup-close">Cerrar</button>
+    <button id="popup-close-btn" class="popup-ok">OK</button>
   </div>
 </div>
 
@@ -115,11 +131,15 @@
     <button class="popup-close">&times;</button>
 
     <h3 class="popup-title">¡Compra realizada!</h3>
-    <p class="popup-text">Gracias por confiar en Belleza Botánica SPA la tienda más Cachilupi 🌿</p>
+    <p class="popup-text">
+      Gracias por confiar en Belleza Botánica SPA, la tienda más Cachilupi 🌿
+    </p>
 
     <button class="btn btn-agregar popup-ok">Aceptar</button>
   </div>
 </div>
+
+</div> <!-- cierre bg-global -->
 
 
 <!-- ===================================================== -->
