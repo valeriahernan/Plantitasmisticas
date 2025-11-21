@@ -13,7 +13,7 @@
 /* FONDO GLOBALSS */
 /* ----------------------------------------- */
 body {
-  background-image: url('../img/fondo.png');
+  background-color: var(--orange);
   background-size: cover;      /* Imagen completa sin recorte */
   background-repeat: no-repeat;
   background-position: top center;
@@ -114,7 +114,7 @@ footer {
 .footer-transparente {
   background: transparent !important;
   border-top: none !important;
-  color: white;
+  color: rgba(255, 255, 255, 0);
 }
 
 /* ----------------------------------------- */
