@@ -129,7 +129,7 @@ footer {
 
 /* Hero */
 .parallax-hero {
-  
+  background-color: #de5c29;
   background-size: cover;
   color: rgb(255, 245, 187);
   padding: 120px 0;
