@@ -26,6 +26,7 @@ header .container { padding-top: 1rem; padding-bottom: 1rem; }
   object-fit: cover;
 }
 
+
 /* Small screens: more compact */
 @media (max-width: 420px) {
   .card img, .card-img-top { height: 140px; }
@@ -34,6 +35,13 @@ header .container { padding-top: 1rem; padding-bottom: 1rem; }
 
 /* Footer */
 footer { font-size: .9rem; color: var(--muted); }
+
+
+.footer-transparente {
+  background-color: transparent !important;
+  border-top: none !important;
+  box-shadow: none !important;
+}
 
 
 /* PARALLAX con imagen mejor  */
