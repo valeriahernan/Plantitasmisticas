@@ -4,8 +4,8 @@
   background-attachment: fixed;
   background-size: cover;
   background-position: center;
-  min-height: 400px;
-  display: flex;
+  min-height: auto;
+   display: flex;
   flex-direction: column;
   justify-content: center;
   position: relative;
