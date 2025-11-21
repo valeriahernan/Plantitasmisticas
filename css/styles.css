@@ -14,7 +14,7 @@
 /* ----------------------------------------- */
 body {
   background-image: url('../img/fondo.png');
-  background-size: contain;      /* Imagen completa sin recorte */
+  background-size: cover;      /* Imagen completa sin recorte */
   background-repeat: no-repeat;
   background-position: top center;
   background-attachment: fixed;
