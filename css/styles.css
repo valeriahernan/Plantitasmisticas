@@ -6,7 +6,7 @@
   --orange: #de5c29;
   --cream: #fcf8d3;
   --muted: #6c757d;
-  --bg-overlay: rgba(255, 169, 129, 0.7);
+  --bg-overlay: rgba(255, 174, 174, 0.7);
 }
 
 /* ----------------------------------------- */
@@ -29,7 +29,7 @@ body::before {
   content: "";
   position: fixed;
   inset: 0;
-  background: var(--orange);
+  background: var(--bg-overlay);
   pointer-events: none;
   z-index: -1;
 }
@@ -53,13 +53,13 @@ header .container {
 /* ----------------------------------------- */
 .productos-grid {
   background-color: var(--cream);
-  border: 1px solid var(--cream);
+  border: 1px solid var(--orange);
   box-shadow: 0 2px 6px rgba(37, 14, 1, 0.048);
 }
 
 /* 🎨 ESTILOS DE LAS CARDS */
 .card {
-  background-color: var(--cream) !important;
+  background-color: var(--orange) !important;
   border: none;
   border-radius: 12px;
   color: white;
